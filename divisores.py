@@ -1,48 +1,49 @@
 #escreva um programa que leia um número inteiro positivo (n>1), que imprima seus divisores, a quantidade de divisores e se o número é primo
 
-def divsores():
+def getNumber():
+  numTarget = int(input('digite um número inteiro maior que 1: '))
+
+  while numTarget < 1:
+    print('número deve ser maior que 1!!\n')
     numTarget = int(input('digite um número inteiro maior que 1: '))
-    divisoresList = []
-    numTargetEhPrimo = False
 
-    while numTarget < 1:
-        print('número deve ser maior que 1!!\n')
-        numTarget = int(input('digite um número inteiro maior que 1: '))
+  return numTarget
 
-    for i in range(1, numTarget + 1):
-        if (numTarget % i == 0):
-            divisoresList.append(i)
+def divisores():
+  numTarget = getNumber()
+  divisoresList = []
+  numTargetEhPrimo = False
 
-    print('Lista de divisores: ', divisoresList)
-    print('Quantidade de divisores: ', len(divisoresList))
+  for i in range(1, numTarget + 1):
+    if (numTarget % i == 0):
+      divisoresList.append(i)
 
-    if len(divisoresList) == 2:
-        numTargetEhPrimo = True
-        print('Este número é primo')
+  print('Lista de divisores: ', divisoresList)
+  print('Quantidade de divisores: ', len(divisoresList))
 
-    else:
-        print('Este número não é primo')
+  if len(divisoresList) == 2:
+    numTargetEhPrimo = True
+    print('Este número é primo')
 
-
-
-
-
+  else:
+    print('Este número não é primo')
 
 def fatoracaoDosPrimos():
-    numTarget = int(input('Digite um número inteiro maior que 1: '))
-    numPrimosList = []
+  numTarget = getNumber()
+  numPrimosList = []
 
-    while numTarget < 1:
-        print('número deve ser maior que 1!!\n')
-        numTarget = int(input('digite um número inteiro maior que 1: '))
+  for i in range(numTarget, 0, -1):
+    divisoresCont = 0
+    cont = 1
 
+    while divisoresCont < 3 and cont <= i:
+      if i % cont == 0:
+        divisoresCont += 1
+      cont += 1
 
-    for i in range(1, numTarget):
-        #terminar em casa
-        print("")
+    if divisoresCont == 2:
+      numPrimosList.append(i)
 
-    print(numPrimosList)
+  print(numPrimosList)
 
 fatoracaoDosPrimos()
-
-
