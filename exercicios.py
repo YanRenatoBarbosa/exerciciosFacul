@@ -75,10 +75,10 @@ def exercicio17():
     def getMedia(listNotas):
         media = 0
         for i in listNotas:
-            listNotas += i
+            media += i
 
         media /= tamanhoTurma
-        medias.append(media)
+        medias.append(round(media, 1))
 
     print('Tamanho da turma')
     tamanhoTurma = getNumber('')
